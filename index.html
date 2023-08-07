@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!-- TITLE -->
+    <title>Bookmark</title>
+    <!-- CSS LINKS -->
+    <link rel="shortcut icon" href="img/faction.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center p-5">
+        <h1>Bookmarker</h1>
+      </div>
+
+      <div class="body-box text-center d-flex flex-column gap-4 py-4 px-3">
+        <div
+          class="heading-box d-flex align-items-center gap-2 justify-content-center"
+        >
+          <i class="fa-solid fa-bookmark fs-4"></i>
+          <h3 class="m-0">Bookmark your favorite sites</h3>
+          <i class="fa-solid fa-bookmark fs-4"></i>
+        </div>
+        <div class="form-group text-start">
+          <label for="siteName" class="mb-2"
+            ><i class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label
+          >
+          <input
+            type="text"
+            id="siteName"
+            class="form-control"
+            oninput="testValidTotal()"
+            placeholder="Bookmark Name"
+          />
+          <p class="alert alert-danger mt-3 d-none" id="existsName">
+            The Name already exists
+          </p>
+          <p class="alert alert-danger mt-3 d-none" id="alertName">
+            The Name is not available
+          </p>
+        </div>
+        <div class="form-group text-start">
+          <label for="siteUrl" class="mb-2"
+            ><i class="fa-solid fa-link pe-2"></i> Site Url</label
+          >
+          <input
+            type="text"
+            id="siteUrl"
+            class="form-control"
+            oninput="isValidHttpUrl()"
+            placeholder="Website URL"
+          />
+          <p class="alert alert-danger mt-3 d-none" id="alertUrl">
+            The URL is not correct
+          </p>
+        </div>
+        <div>
+          <button class="btn btn-submit px-5" onclick="addSite()">
+            Submit
+          </button>
+        </div>
+      </div>
+      <table class="table mt-4 text-center">
+        <thead class="text-center">
+          <th>Index</th>
+          <th>Website Name</th>
+          <th>Visit</th>
+          <th>Delete</th>
+        </thead>
+
+        <tbody id="tableId"></tbody>
+      </table>
+    </div>
+    <script src="JS/main.js"></script>
+  </body>
+</html>
