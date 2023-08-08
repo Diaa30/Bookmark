@@ -82,6 +82,9 @@ function validateName() {
 function validateNameExists() {
   var testLoc = JSON.parse(localStorage.getItem("siteList"));
   var nameError = document.getElementById("siteName");
+  if (testLoc == null) {
+    return true;
+  }
   for (var i = 0; i < testLoc.length; i++) {
     if (siteName.value == testLoc[i].name) {
       nameError.classList.add("is-invalid");
